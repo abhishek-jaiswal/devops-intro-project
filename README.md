@@ -53,3 +53,13 @@ If you encounter errors with Ubuntu version numbers not being available or check
 
 * Find the newest version number and checksum from the [Ubuntu website for this release](http://releases.ubuntu.com/trusty/)
 * Edit `PACKER_BOX_NAME` and `iso_checksum` in the template files to match that version number and checksum.
+
+
+
+### Part IV: creating jenkins server 
+
+* goto to packer-templates directory `cd packer-templates` 
+* run `packer build -only=virtualbox-iso control-server.json`
+* to add to vagrant run `vagrant box add virtualbox/ubuntu-14.04.5-server-amd64-controlserver_virtualbox.box --name devops-ctrlserver`
+* go to vagrants/control-server/ folder `cd vagrants/control-server/`
+* run  `vagrant up`
