@@ -63,3 +63,9 @@ If you encounter errors with Ubuntu version numbers not being available or check
 * to add to vagrant run `vagrant box add virtualbox/ubuntu-14.04.5-server-amd64-controlserver_virtualbox.box --name devops-ctrlserver`
 * go to vagrants/control-server/ folder `cd vagrants/control-server/`
 * run  `vagrant up`
+
+### Part V: jenkins on aws
+* export aws keys by command `export AWS_ACCESS_KEY_ID=<id> && export AWS_SECRET_ACCESS_KEY=<key>`
+* run `packer build -only=amazon-ebs control-server.json`
+* launch the ami on aws
+

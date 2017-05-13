@@ -59,9 +59,9 @@
         "type": "amazon-ebs",
         "access_key": "{{ user `AWS_ACCESS_KEY_ID` }}",
         "secret_key": "{{ user `AWS_SECRET_ACCESS_KEY` }}",
-        "region": "us-east-1",
-        "source_ami": "ami-10b68a78",
-        "instance_type": "t1.micro",
+        "region": "ap-south-1",
+        "source_ami": "ami-c2ee9dad",
+        "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
         "ami_name": "control-{{ user `PACKER_BOX_NAME` }}-{{timestamp}}"
       },
@@ -105,7 +105,7 @@
     {
       "type": "file",
       "source": "../jenkins-config",
-      "destination": "/home/vagrant/jenkins"
+      "destination": "/tmp/jenkins"
     },
     {
       "type": "shell",

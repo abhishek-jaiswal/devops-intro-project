@@ -17,24 +17,24 @@ echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenk
 
 apt-get update
 apt-get install -y jenkins
-apt-get upgrade -y
+#apt-get upgrade -y
 
 # copy premade configuration files
 # jenkins default config, to set --prefix=jenkins
-cp -f /home/vagrant/jenkins/jenkins /etc/default
+cp -f /tmp/jenkins/jenkins /etc/default
 # fix dos newlines for Windows users
 dos2unix /etc/default/jenkins
 # install some extra plugins
-/bin/bash /home/vagrant/jenkins/install_jenkins_plugins.sh
+/bin/bash /tmp/jenkins/install_jenkins_plugins.sh
 # jenkins security and pipeline plugin config
-cp -f /home/vagrant/jenkins/config.xml /var/lib/jenkins
+cp -f /tmp/jenkins/config.xml /var/lib/jenkins
 # set up username for vagrant
 mkdir -p /var/lib/jenkins/users/vagrant
-cp /home/vagrant/jenkins/users/vagrant/config.xml /var/lib/jenkins/users/vagrant
+cp /tmp/jenkins/users/vagrant/config.xml /var/lib/jenkins/users/vagrant
 # example job
 mkdir -p /var/lib/jenkins/jobs
 cd /var/lib/jenkins/jobs
-tar zxvf /home/vagrant/jenkins/example-job.tar.gz
+tar zxvf /tmp/jenkins/example-job.tar.gz
 
 # set permissions or else jenkins can't run jobs
 chown -R jenkins:jenkins /var/lib/jenkins
